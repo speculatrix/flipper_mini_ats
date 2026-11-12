@@ -1,0 +1,5 @@
+flipper_app/dist/
+flipper_app/.vscode/
+flipper_app/.clang-format
+flipper_app/.editorconfig
+wifi_bridge/.pio/

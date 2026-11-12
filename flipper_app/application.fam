@@ -1,0 +1,11 @@
+App(
+    appid="ats_mini_remote",
+    name="ATS-Mini Remote",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="ats_remote_app",
+    requires=["gui"],
+    stack_size=2 * 1024,
+    fap_category="GPIO",
+    fap_version="0.1",
+    fap_description="Control an ATS-Mini receiver over Wi-Fi via the Wi-Fi devboard",
+)
