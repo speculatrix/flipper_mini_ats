@@ -59,13 +59,13 @@ from the 5 V pin while it runs.
 
 | Button        | Action                      | Protocol |
 |---------------|-----------------------------|----------|
-| Up / Down     | Tune (hold to repeat)       | `R` / `r` |
-| Right / Left  | Volume up / down            | `V` / `v` |
+| Up / Down     | Volume up / down (hold to repeat) | `V` / `v` |
+| Right / Left  | Tune up / down (hold to repeat)   | `R` / `r` |
 | OK            | Encoder click               | `e` |
 | Hold OK       | Encoder short press         | `E` |
 | Back          | Main menu                   |          |
 
-Up/Down also scroll the receiver's menus after an OK click.
+Left/Right also scroll the receiver's menus after an OK click.
 
 The screen shows the band, mode, frequency, step, bandwidth, AGC, volume, RSSI,
 SNR, battery voltage and an RSSI bar. These come from the receiver's monitor log

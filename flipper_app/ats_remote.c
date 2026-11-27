@@ -361,7 +361,7 @@ static void remote_draw_callback(Canvas* canvas, void* model) {
     canvas_draw_frame(canvas, 0, 55, 128, 3);
     canvas_draw_box(canvas, 0, 55, bar * 2, 3);
 
-    canvas_draw_str(canvas, 0, 64, show_message ? m->message : "^v tune  <> vol  OK clk");
+    canvas_draw_str(canvas, 0, 64, show_message ? m->message : "^v vol  <> tune  OK clk");
 }
 
 static bool remote_input_callback(InputEvent* event, void* ctx) {
@@ -370,16 +370,16 @@ static bool remote_input_callback(InputEvent* event, void* ctx) {
 
     switch(event->key) {
     case InputKeyUp:
-        if(event->type == InputTypeShort || event->type == InputTypeRepeat) cmd = 'R';
+        if(event->type == InputTypeShort || event->type == InputTypeRepeat) cmd = 'V';
         break;
     case InputKeyDown:
-        if(event->type == InputTypeShort || event->type == InputTypeRepeat) cmd = 'r';
-        break;
-    case InputKeyLeft:
         if(event->type == InputTypeShort || event->type == InputTypeRepeat) cmd = 'v';
         break;
+    case InputKeyLeft:
+        if(event->type == InputTypeShort || event->type == InputTypeRepeat) cmd = 'r';
+        break;
     case InputKeyRight:
-        if(event->type == InputTypeShort || event->type == InputTypeRepeat) cmd = 'V';
+        if(event->type == InputTypeShort || event->type == InputTypeRepeat) cmd = 'R';
         break;
     case InputKeyOk:
         if(event->type == InputTypeShort) cmd = 'e';
@@ -486,8 +486,8 @@ static const char help_text[] =
     "Settings > Wi-Fi > AP Only\n"
     "Settings > TCP Port > Ad hoc\n\n"
     "Remote screen:\n"
-    "Up/Down: tune\n"
-    "Left/Right: volume\n"
+    "Up/Down: volume\n"
+    "Left/Right: tune\n"
     "OK: click, hold OK: press\n"
     "Back: menu\n\n"
     "Set Frequency must be in\n"
