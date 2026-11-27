@@ -1,0 +1,18 @@
+# Draft for the Flipper Application Catalog. In a fork of
+# flipperdevices/flipper-application-catalog, copy this to:
+#   applications/GPIO/ats_mini_remote/manifest.yml
+# Before submitting, set commit_sha to the full SHA of the pushed commit
+# that contains the app and the screenshots.
+# name, id, category, version, author and icon come from application.fam.
+sourcecode:
+  type: git
+  location:
+    origin: https://github.com/speculatrix/flipper_mini_ats.git
+    subdir: flipper_app
+    commit_sha: FILL_IN_FULL_COMMIT_SHA
+short_description: Control an ATS-Mini receiver over Wi-Fi via the Wi-Fi devboard
+description: "@README.md"
+changelog: "@CHANGELOG.md"
+screenshots:
+  - screenshots/remote_fm.png
+  - screenshots/remote_lsb.png

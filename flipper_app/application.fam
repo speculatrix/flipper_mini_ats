@@ -6,6 +6,9 @@ App(
     requires=["gui"],
     stack_size=2 * 1024,
     fap_category="GPIO",
-    fap_version="0.1",
+    fap_version="1.0",
+    fap_icon="ats_remote_10px.png",
+    fap_author="speculatrix",
+    fap_weburl="https://github.com/speculatrix/flipper_mini_ats",
     fap_description="Control an ATS-Mini receiver over Wi-Fi via the Wi-Fi devboard",
 )
