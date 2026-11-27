@@ -375,11 +375,16 @@ static bool remote_input_callback(InputEvent* event, void* ctx) {
     case InputKeyDown:
         if(event->type == InputTypeShort || event->type == InputTypeRepeat) cmd = 'v';
         break;
+    // Left/Right: short press tunes one step, long press changes band.
+    // Repeat events after the long press are ignored, so a hold changes
+    // band exactly once.
     case InputKeyLeft:
-        if(event->type == InputTypeShort || event->type == InputTypeRepeat) cmd = 'r';
+        if(event->type == InputTypeShort) cmd = 'r';
+        if(event->type == InputTypeLong) cmd = 'b';
         break;
     case InputKeyRight:
-        if(event->type == InputTypeShort || event->type == InputTypeRepeat) cmd = 'R';
+        if(event->type == InputTypeShort) cmd = 'R';
+        if(event->type == InputTypeLong) cmd = 'B';
         break;
     case InputKeyOk:
         if(event->type == InputTypeShort) cmd = 'e';
@@ -488,6 +493,7 @@ static const char help_text[] =
     "Remote screen:\n"
     "Up/Down: volume\n"
     "Left/Right: tune\n"
+    "Hold Left/Right: band\n"
     "OK: click, hold OK: press\n"
     "Back: menu\n\n"
     "Set Frequency must be in\n"

@@ -60,7 +60,8 @@ from the 5 V pin while it runs.
 | Button        | Action                      | Protocol |
 |---------------|-----------------------------|----------|
 | Up / Down     | Volume up / down (hold to repeat) | `V` / `v` |
-| Right / Left  | Tune up / down (hold to repeat)   | `R` / `r` |
+| Right / Left  | Tune up / down one step           | `R` / `r` |
+| Hold Right / Left | Next / previous band          | `B` / `b` |
 | OK            | Encoder click               | `e` |
 | Hold OK       | Encoder short press         | `E` |
 | Back          | Main menu                   |          |
