@@ -59,7 +59,8 @@ from the 5 V pin while it runs.
 
 | Button        | Action                      | Protocol |
 |---------------|-----------------------------|----------|
-| Up / Down     | Volume up / down (hold to repeat) | `V` / `v` |
+| Up / Down     | Volume up / down (hold to repeat in FM) | `V` / `v` |
+| Hold Up / Down | Next / previous mode (AM/LSB/USB only) | `M` / `m` |
 | Right / Left  | Tune up / down one step           | `R` / `r` |
 | Hold Right / Left | Next / previous band          | `B` / `b` |
 | OK            | Encoder click               | `e` |

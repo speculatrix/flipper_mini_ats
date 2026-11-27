@@ -368,12 +368,29 @@ static bool remote_input_callback(InputEvent* event, void* ctx) {
     AtsRemoteApp* app = ctx;
     char cmd = 0;
 
+    // In AM/LSB/USB, holding Up/Down changes mode. FM has only one mode, and
+    // before the first status line arrives we don't know the mode, so there
+    // Up/Down keep hold-to-repeat volume.
+    bool mode_keys = false;
+    with_view_model(
+        app->remote_view, RemoteModel * m, { mode_keys = m->valid && !m->is_fm; }, false);
+
     switch(event->key) {
     case InputKeyUp:
-        if(event->type == InputTypeShort || event->type == InputTypeRepeat) cmd = 'V';
+        if(event->type == InputTypeShort) cmd = 'V';
+        if(mode_keys) {
+            if(event->type == InputTypeLong) cmd = 'M';
+        } else if(event->type == InputTypeRepeat) {
+            cmd = 'V';
+        }
         break;
     case InputKeyDown:
-        if(event->type == InputTypeShort || event->type == InputTypeRepeat) cmd = 'v';
+        if(event->type == InputTypeShort) cmd = 'v';
+        if(mode_keys) {
+            if(event->type == InputTypeLong) cmd = 'm';
+        } else if(event->type == InputTypeRepeat) {
+            cmd = 'v';
+        }
         break;
     // Left/Right: short press tunes one step, long press changes band.
     // Repeat events after the long press are ignored, so a hold changes
@@ -494,6 +511,7 @@ static const char help_text[] =
     "Up/Down: volume\n"
     "Left/Right: tune\n"
     "Hold Left/Right: band\n"
+    "Hold Up/Down: mode (not FM)\n"
     "OK: click, hold OK: press\n"
     "Back: menu\n\n"
     "Set Frequency must be in\n"
