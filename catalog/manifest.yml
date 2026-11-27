@@ -16,3 +16,5 @@ changelog: "@CHANGELOG.md"
 screenshots:
   - screenshots/remote_fm.png
   - screenshots/remote_lsb.png
+  - screenshots/menu.png
+  - screenshots/app-menu.png
